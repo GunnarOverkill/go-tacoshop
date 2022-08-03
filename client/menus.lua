@@ -420,26 +420,33 @@ RegisterNetEvent('nh-context:DrinkMenuTacoShop', function(data)
     })
 end)
 
+-- Bill Stuff
 RegisterNetEvent("go-tacoshop:bill")
 AddEventHandler("go-tacoshop:bill", function()
-    local bill = exports["nh-keyboard"]:KeyboardInput({
+    local bill = exports['qb-input']:ShowInput({
         header = "Create Receipt",
-        rows = {
+		submitText = "Bill",
+        inputs = {
             {
-                id = 0,
-                txt = "Server ID"
+                text = "Server ID(#)",
+				name = "citizenid", -- name of the input should be unique otherwise it might override
+                type = "text", -- type of the input
+                isRequired = true -- Optional [accepted values: true | false] but will submit the form if no value is inputted
             },
             {
-                id = 1,
-                txt = "Amount"
+                text = "Bill Price ($)", -- text you want to be displayed as a place holder
+                name = "billprice", -- name of the input should be unique otherwise it might override
+                type = "number", -- type of the input - number will not allow non-number characters in the field so only accepts 0-9
+                isRequired = false -- Optional [accepted values: true | false] but will submit the form if no value is inputted
             }
+			
         }
     })
     if bill ~= nil then
-        if bill[1].input == nil or bill[2].input == nil then 
+        if bill.citizenid == nil or bill.billprice == nil then 
             return 
         end
-        TriggerServerEvent("go-tacoshop:bill:player", bill[1].input, bill[2].input)
+        TriggerServerEvent("go-tacoshop:bill:player", bill.citizenid, bill.billprice)
     end
 end)
 
