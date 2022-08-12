@@ -147,15 +147,6 @@ QBCore.Functions.CreateCallback('go-tacoshop:server:get:ingredientChickenComboMe
         cb(false)
     end
 end)
-
-QBCore.Functions.CreateUseableItem("ts-xtc_taco", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-    TriggerClientEvent("go-tacoshop:XTCTaco", source, item.name)
-end)
-
-QBCore.Functions.CreateUseableItem("ts-lsd_taco", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-    TriggerClientEvent("go-tacoshop:LSDTaco", source, item.name)
 end)
 
 QBCore.Functions.CreateUseableItem("ts-beef_combo_meal", function(source, item)

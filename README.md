@@ -43,7 +43,7 @@ https://github.com/elvodkaa/qb-taco
                 payment = 125
             },
 			['4'] = {
-                name = "CEO",
+                name = "Owner",
 				isboss = true,
                 payment = 150
             },
