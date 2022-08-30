@@ -1,12 +1,12 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 Citizen.CreateThread(function()
-	exports['qb-target']:AddBoxZone("TacoShopDuty", vector3(429.25, -1913.84, 25.2), 1.4, 1.2, {
-		name = "TacoShopDuty",
-		heading = 32,
+	exports['qb-target']:AddBoxZone("TacoShop-Duty", vector3(429.24, -1913.8, 25.47), 0.8, 0.5, {
+		name = "TacoShop-Duty",
+		heading = 225,
 		debugPoly = false,
-		minZ=24.5,
-		maxZ=27.5,
+		minZ=24.0,
+		maxZ=27.0,
 	}, {
 		options = {
 		    {  
@@ -19,12 +19,12 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
 
-	exports['qb-target']:AddBoxZone("tacoshop_tray_1", vector3(417.8, -1915.28, 25.25), 1.05, 1.0, {
-		name = "tacoshop_tray_1",
-		heading = 35.0,
+	exports['qb-target']:AddBoxZone("TacoShop-Tray1", vector3(418.15, -1915.08, 25.47), 1, 1, {
+		name = "TacoShop-Tray1",
+		heading = 315,
 		debugPoly = false,
-		minZ=24.5,
-		maxZ=27.5,
+		minZ=24.0,
+		maxZ=27.0,
 	}, {
 		options = {
 		    {
@@ -36,12 +36,12 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
     
-    exports['qb-target']:AddBoxZone("tacoshop_tray_2", vector3(416.33, -1916.8, 25.71), 0.5, 0.7, {
-		name="tacoshop_tray_2",
-		heading=318,
+    exports['qb-target']:AddBoxZone("TacoShop-Tray2", vector3(416.28, -1916.98, 25.47), 1, 1, {
+		name="TacoShop-Tray2",
+		heading=315,
 		debugPoly=false,
-		minZ=24.5,
-		maxZ=27.5,
+		minZ=24.0,
+		maxZ=27.0,
 	}, {
 		options = {
 		    {
@@ -53,16 +53,16 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
 
-    exports['qb-target']:AddBoxZone("tacoshopfridge", vector3(424.27, -1921.76, 25.83), 1.5, 1.5, {
-        name="tacoshopfridge",
-        heading=50,
+    exports['qb-target']:AddBoxZone("TacoShop-Fridge", vector3(424.18, -1921.79, 25.47), 1.5, 1, {
+        name="TacoShop",
+        heading=315,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
            {
-            event = "nh-context:FridgeTacoShop",
+            event = "nh-context:TacoShop-FridgeMenu",
             icon = "fa-solid fa-refrigerator",
             label = "Open Fridge",
             job = "taco",
@@ -71,16 +71,16 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("tacoshoporderingredients", vector3(426.09, -1913.68, 25.75), 1.7, 1.7, {
-        name="tacoshoporderingredients",
-        heading=50,
+    exports['qb-target']:AddBoxZone("TacoShop-OrderIngredients", vector3(425.96, -1913.62, 25.47), 2, 1.8, {
+        name="TacoShop-OrderIngredients",
+        heading=315,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
-            event = "nh-context:OrderMenuTacoShop",
+            event = "nh-context:TacoShop-OrderIngredientsMenu",
             icon = "fas fa-laptop",
             label = "Get Ingredients",
             job = "taco",
@@ -89,16 +89,16 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("tacoshopdisplay", vector3(420.22, -1916.67, 25.62), 1.3, 1.0, {
-        name="tacoshopdisplay",
-        heading=50,
+    exports['qb-target']:AddBoxZone("TacoShop-Display1", vector3(420.06, -1916.67, 25.47), 2, 0.9, {
+        name="TacoShop-Display1",
+        heading=315,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
-            event = "go-tacoshop:Storage",
+            event = "go-tacoshop:Display",
             icon = "fas fa-box",
             label = "Storage",
             job = "taco",
@@ -107,16 +107,34 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("makefoodtacoshop", vector3(427.57, -1918.39, 25.46), 1.8, 0.7, {
-        name="makefoodtacoshop",
-        heading=140,
+    exports['qb-target']:AddBoxZone("TacoShop-Display2", vector3(424.83, -1914.34, 25.48), 1.6, 0.7, {
+        name="TacoShop-Display2",
+        heading=225,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+		minZ=24.0,
+		maxZ=27.0,
     }, {
         options = {
             {
-            event = "nh-context:FoodsTacoShop",
+            event = "go-tacoshop:Display",
+            icon = "fas fa-box",
+            label = "Storage",
+            job = "taco",
+            },
+        },
+        distance = 1.5
+    })
+
+    exports['qb-target']:AddBoxZone("TacoShop-MakeFood", vector3(422.91, -1922.99, 25.47), 2, 0.8, {
+        name="TacoShop-MakeFood",
+        heading=315,
+        debugPoly=false,
+        minZ=24.0,
+        maxZ=27.0,
+    }, {
+        options = {
+            {
+            event = "nh-context:TacoShop-FoodMenu",
             icon = "fa-solid fa-taco",
             label = "Food Work Station",
             job = "taco",
@@ -126,16 +144,16 @@ Citizen.CreateThread(function()
     })
 
 
-    exports['qb-target']:AddBoxZone("makemealstacoshop", vector3(421.28, -1915.42, 25.56), 1.8, 0.7, {
-        name="makemealstacoshop",
-        heading=140,
+    exports['qb-target']:AddBoxZone("TacoShop-MakeMeals", vector3(427.62, -1918.54, 25.47), 1.7, 1, {
+        name="TacoShop-MakeMeals",
+        heading=315,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
-            event = "nh-context:MealsTacoShop",
+            event = "nh-context:TacoShop-MealMenu",
             icon = "fa-solid fa-hand-holding-box",
             label = "Meal Work Station",
             job = "taco",
@@ -144,16 +162,16 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
     
-    exports['qb-target']:AddBoxZone("cookingmeattacoshop", vector3(425.31, -1920.79, 25.29), 1.8, 0.7, {
-        name="cookingmeattacoshop",
-        heading=140,
+    exports['qb-target']:AddBoxZone("TacoShop-CookMeats", vector3(425.3, -1920.77, 25.47), 1.6, 1, {
+        name="TacoShop-CookMeats",
+        heading=315,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
-            event = "nh-context:CookMeatTacoShop",
+            event = "nh-context:TacoShop-CookMeatMenu",
             icon = "fa-solid fa-meat",
             label = "Cook Meats Work Station",
             job = "taco",
@@ -162,12 +180,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("TacoShop_register_1", vector3(419.07, -1914.49, 25.86), 1.0, 0.8, {
-        name="TacoShop_register_1",
+    exports['qb-target']:AddBoxZone("TacoShop-Register1", vector3(418.98, -1914.3, 25.47), 0.8, 0.8, {
+        name="TacoShop-Register1",
+        heading=315,
         debugPoly=false,
-        heading=125,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
@@ -181,12 +199,12 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("TacoShop_register_2", vector3(416.96, -1916.28, 25.86), 1.0, 0.8, {
-        name="TacoShop_register_2",
+    exports['qb-target']:AddBoxZone("TacoShop-Register2", vector3(416.94, -1916.34, 25.47), 0.8, 0.8, {
+        name="TacoShop-Register2",
         debugPoly=false,
-        heading=125,
-        minZ=24.5,
-        maxZ=27.5,
+        heading=315,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
@@ -200,16 +218,16 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("tacoshopdrinks", vector3(418.86, -1917.76, 25.5), 1.0, 0.6, {
-        name="tacoshopdrinks",
-        heading=34,
+    exports['qb-target']:AddBoxZone("TacoShop-SodaDispenser1", vector3(418.84, -1917.76, 25.47), 0.8, 0.8, {
+        name="TacoShop-SodaDispenser1",
+        heading=315,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
-            event = "nh-context:DrinkMenuTacoShop",
+            event = "nh-context:TacoShop-SodaDispenserMenu",
             icon = "fas fa-filter",
             label = "Make Some Soda and Coffee",
             job = "taco",
@@ -218,16 +236,16 @@ Citizen.CreateThread(function()
         distance = 1.5
     })
 
-    exports['qb-target']:AddBoxZone("tacoshopdrinks2", vector3(422.98, -1912.66, 25.64), 1.0, 0.6, {
-        name="tacoshopdrinks2",
+    exports['qb-target']:AddBoxZone("TacoShop-SodaDispenser2", vector3(422.97, -1912.58, 25.47), 1.3, 0.8, {
+        name="TacoShop-SodaDispenser2",
         heading=34,
         debugPoly=false,
-        minZ=24.5,
-        maxZ=27.5,
+        minZ=24.0,
+        maxZ=27.0,
     }, {
         options = {
             {
-            event = "nh-context:DrinkMenuTacoShop",
+            event = "nh-context:TacoShop-SodaDispenserMenu",
             icon = "fas fa-filter",
             label = "Make Some Soda and Coffee",
             job = "taco",
@@ -240,7 +258,7 @@ end)
 
 -- QB-Menu --
 
-RegisterNetEvent('nh-context:FoodsTacoShop', function(data)
+RegisterNetEvent('nh-context:TacoShop-FoodMenu', function(data)
     exports['qb-menu']:openMenu({
         {
             header = "Available Foods",
@@ -295,7 +313,7 @@ RegisterNetEvent('nh-context:FoodsTacoShop', function(data)
     })
 end)
 
-RegisterNetEvent('nh-context:MealsTacoShop', function(data)
+RegisterNetEvent('nh-context:TacoShop-MealMenu', function(data)
     exports['qb-menu']:openMenu({
         {
             header = "Available Foods",
@@ -322,7 +340,7 @@ RegisterNetEvent('nh-context:MealsTacoShop', function(data)
     })
 end)
 
-RegisterNetEvent('nh-context:CookMeatTacoShop', function(data)
+RegisterNetEvent('nh-context:TacoShop-CookMeatMenu', function(data)
     exports['qb-menu']:openMenu({
         {
             header = "Available Foods",
@@ -349,7 +367,7 @@ RegisterNetEvent('nh-context:CookMeatTacoShop', function(data)
     })
 end)
 
-RegisterNetEvent('nh-context:FridgeTacoShop', function(data)
+RegisterNetEvent('nh-context:TacoShop-FridgeMenu', function(data)
     exports['qb-menu']:openMenu({
         {
             header = "Fridge",
@@ -369,7 +387,7 @@ RegisterNetEvent('nh-context:FridgeTacoShop', function(data)
     })
 end)
 
-RegisterNetEvent('nh-context:OrderMenuTacoShop', function(data)
+RegisterNetEvent('nh-context:TacoShop-OrderIngredientsMenu', function(data)
     exports['qb-menu']:openMenu({
         {
             header = "Ingredients",
@@ -389,7 +407,7 @@ RegisterNetEvent('nh-context:OrderMenuTacoShop', function(data)
     })
 end)
 
-RegisterNetEvent('nh-context:DrinkMenuTacoShop', function(data)
+RegisterNetEvent('nh-context:TacoShop-SodaDispenserMenu', function(data)
     exports['qb-menu']:openMenu({
         {
             id = 0,
