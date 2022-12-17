@@ -1,3 +1,5 @@
+OUTDATED! New Version of QB/QB-Inventory changes things and I am unsure how to fix them.
+
 Based on the ATMTACO MLO
 
 # Taco Shop for QBCore Framework
